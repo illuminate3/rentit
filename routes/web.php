@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/profil', 'ProfileController@show');
+Route::get('/profil/upravit', 'ProfileController@edit');

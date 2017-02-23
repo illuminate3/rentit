@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('app-content-class', '')
+
 @section('content')
 
 <div class="intro background-image">

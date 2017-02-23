@@ -8317,10 +8317,45 @@ button.close {
   }
 }
 
+html {
+  font-size: 18px;
+}
+
 .background-image {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  z-index: 50;
+}
+
+.nav__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.nav__link {
+  display: inline-block;
+  margin: 20px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.app-content--padded {
+  padding-top: 60px;
 }
 
 .intro {

@@ -12,7 +12,19 @@
 	</head>
 	<body>
 		<div class="app">
-			@yield('content')
+			<div class="nav">
+				<div class="container">
+					<div class="nav__content">
+						<a href="{{ action('HomeController@index') }}" class="nav__link">Úvod</a>
+						<a href="{{ action('ProfileController@show') }}" class="nav__link">Profil</a>
+						<a href="" class="nav__link">Půjčovna</a>
+						<a href="" class="nav__link">Kontakt</a>
+					</div>
+				</div>
+			</div>
+			<div class="app-content @yield('app-content-class', 'app-content--padded')">
+				@yield('content')
+			</div>
 		</div>
 		<script src="{{ asset('scripts/app.js') }}"></script>
 	</body>
