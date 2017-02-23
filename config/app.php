@@ -12,7 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Rentit',
+    'description' => 'Cool service for shooting equipment sharing and renting.',
 
     /*
     |--------------------------------------------------------------------------
