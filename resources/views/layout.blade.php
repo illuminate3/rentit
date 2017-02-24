@@ -17,7 +17,7 @@
 					<div class="nav__content">
 						<a href="{{ action('HomeController@index') }}" class="nav__link">Úvod</a>
 						<a href="{{ action('ProfileController@show') }}" class="nav__link">Profil</a>
-						<a href="" class="nav__link">Půjčovna</a>
+						<a href="{{ action('ItemsController@index') }}" class="nav__link">Půjčovna</a>
 						<a href="" class="nav__link">Kontakt</a>
 					</div>
 				</div>

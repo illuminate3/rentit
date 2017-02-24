@@ -12,5 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/profil', 'ProfileController@show');
-Route::get('/profil/upravit', 'ProfileController@edit');
+
+Route::get('/profile', 'ProfileController@show');
+Route::get('/profile/edit', 'ProfileController@edit');
+
+Route::get('/items', 'ItemsController@index');
+Route::get('/items/{id}', 'ItemsController@edit');

@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        factory(App\User::class, 10)->create()->each(function ($u) {
-            factory(App\Item::class, 10)->create()->each(function ($i) {
-                $u->items()->save($i);
-            });
+        factory(App\User::class, 10)->create()->each(function ($user) {
+            factory(App\Item::class, 10)->create([
+                'user_id' => $user->id
+            ]);
         });
     }
 }
