@@ -25,6 +25,18 @@ class CreateItemsTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
+
+            $table->integer('category_id');
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+        });
+
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('slug');
         });
     }
 

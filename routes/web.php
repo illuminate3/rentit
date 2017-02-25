@@ -17,4 +17,4 @@ Route::get('/profile', 'ProfileController@show');
 Route::get('/profile/edit', 'ProfileController@edit');
 
 Route::get('/items', 'ItemsController@index');
-Route::get('/items/{id}', 'ItemsController@edit');
+Route::get('/items/{id}', 'ItemsController@show');

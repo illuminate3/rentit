@@ -61,3 +61,22 @@
 
 }
 
+.item-tile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-tile {
+    display: block;
+    width: calc(100% / 3);
+}
+
+.item-tile__image::after {
+    content: '';
+    padding-bottom: 10%;
+}
+
+.image {
+    width: 100%;
+}
