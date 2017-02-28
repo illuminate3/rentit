@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('view', 'item-index')
+
 @section('content')
 
 <div class="item-list">

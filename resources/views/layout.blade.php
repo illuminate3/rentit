@@ -8,7 +8,7 @@
 
 		<title>{{ config('app.name') }} | @yield('title', config('app.description'))</title>
 
-		<link rel="stylesheet" href="{{ asset('styles/app.css') }}" />
+		<link rel="stylesheet" href="{{ mix('styles/app.css') }}" />
 	</head>
 	<body>
 		<div class="app">
@@ -22,10 +22,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="app-content @yield('app-content-class', 'app-content--padded')">
+			<div class="app-content @yield('app-content-class', 'app-content--padded') @yield('view')-view">
 				@yield('content')
 			</div>
 		</div>
-		<script src="{{ asset('scripts/app.js') }}"></script>
+		<script src="{{ mix('scripts/app.js') }}"></script>
 	</body>
 </html>
