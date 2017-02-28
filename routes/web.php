@@ -20,3 +20,7 @@ Route::get('/items', 'ItemsController@index');
 Route::get('/items/create', 'ItemsController@create');
 Route::get('/items/{item}', 'ItemsController@show');
 Route::post('/items', 'ItemsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
