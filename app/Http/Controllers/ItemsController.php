@@ -45,7 +45,7 @@ class ItemsController extends Controller
         $item->user()->associate(Auth::user());
 
         if ($request->hasFile('image')) {
-            $name = $request->file('image')->store('storage/images/');
+            $name = $request->file('image')->store('storage/images');
             $item->image = $name;
         }
 
@@ -58,5 +58,16 @@ class ItemsController extends Controller
     {
         $item->delete();
         return redirect()->action('ItemsController@index');
+    }
+
+    public function showBorrow(Item $item)
+    {
+        return view('items.borrow', ['item' => $item]);
+    }
+
+    public function sendBorrow(Item $item, Request $request)
+    {
+        
+        return redirect()->back();
     }
 }
