@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
-            $table->string('image');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->integer('user_id');
@@ -37,6 +37,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -48,5 +49,6 @@ class CreateItemsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('items');
+        Schema::dropIfExists('categories');
     }
 }

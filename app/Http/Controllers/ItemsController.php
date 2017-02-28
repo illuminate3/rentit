@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,7 @@ class ItemsController extends Controller
 
     public function index()
     {
-        $items = Item::paginate(20);
+        $items = Item::orderBy('updated_at', 'desc')->paginate(20);
         return view('items.index', ['items' => $items]);
     }
 
@@ -26,7 +27,8 @@ class ItemsController extends Controller
 
     public function create(Item $item)
     {
-        return view('items.create');
+        $categories = Category::all();
+        return view('items.create', [ 'categories' => $categories ]);
     }
 
     public function store(Request $request)
@@ -39,19 +41,22 @@ class ItemsController extends Controller
 
         $item->title = $request->input('title');
         $item->description = $request->input('description');
+        $item->category_id = $request->input('category_id');
         $item->user()->associate(Auth::user());
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $path = public_path('images/items/');
-            $name = sha1(time()) . '.' . $image->getClientOriginalExtension();
-            $image->move($path, $name);
-
-            $item->image = $path . $name;
+            $name = $request->file('image')->store('storage/images/');
+            $item->image = $name;
         }
 
         $item->save();
 
         return redirect()->back();
+    }
+
+    public function destroy(Item $item)
+    {
+        $item->delete();
+        return redirect()->action('ItemsController@index');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('view', 'item-index')
 
@@ -14,6 +14,8 @@
 					<div class="item-tile__description">{{ $item->description }}</div>
 				</a>
 			@endforeach
+		</div>
+		<div class="item-index__pagination">
 			{{ $items->links() }}
 		</div>
 	</div>
