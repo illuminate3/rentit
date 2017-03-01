@@ -13,8 +13,12 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/home', 'HomeController@index');
+
 Route::get('/profile', 'ProfileController@show');
 Route::get('/profile/edit', 'ProfileController@edit');
+
+Route::get('/user/{user}', 'UserController@show');
 
 Route::get('/items', 'ItemsController@index');
 Route::get('/items/create', 'ItemsController@create');
@@ -26,4 +30,3 @@ Route::post('/items/{item}/borrow', 'ItemsController@sendBorrow');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');

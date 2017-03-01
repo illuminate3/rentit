@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Category;
+use App\Mail\BorrowMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ItemsController extends Controller
 {
@@ -35,6 +37,7 @@ class ItemsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'price' => 'required',
         ]);
 
         $item = new Item;
@@ -51,7 +54,7 @@ class ItemsController extends Controller
 
         $item->save();
 
-        return redirect()->back();
+        return redirect()->action('ItemsController@index');
     }
 
     public function destroy(Item $item)
@@ -67,7 +70,8 @@ class ItemsController extends Controller
 
     public function sendBorrow(Item $item, Request $request)
     {
-        
+        Mail::to($request->user())->send(new BorrowMail($item, $request->input('message')));
+
         return redirect()->back();
     }
 }

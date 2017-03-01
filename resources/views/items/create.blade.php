@@ -21,13 +21,27 @@
 			<textarea type="password" class="form-control" id="description" name="description" placeholder="Popis"></textarea>
 		</div>
 
-		<div class="form-group">
-			<label for="category">Kategorie</label>
-			<select class="form-control" id="category" name="category_id">
-				@foreach ($categories as $category)
-					<option value="{{ $category->id }}">{{ $category->name }}</option>
-				@endforeach
-			</select>
+		<div class="row">
+			<div class="col-sm-6">
+
+					<div class="form-group">
+						<label for="price">Cena</label>
+						<input class="form-control" type="number" id="price" name="price" />
+					</div>
+					
+			</div>
+			<div class="col-sm-6">
+
+					<div class="form-group">
+						<label for="category">Kategorie</label>
+						<select class="form-control" id="category" name="category_id">
+							@foreach ($categories as $category)
+								<option value="{{ $category->id }}">{{ $category->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+			</div>
 		</div>
 
 		<div class="form-group">

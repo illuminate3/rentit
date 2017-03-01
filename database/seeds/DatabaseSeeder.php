@@ -21,8 +21,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => str_slug($name)
             ]);
         }
-        // $this->call(UsersTableSeeder::class);
-
+        
         factory(User::class, 10)->create()->each(function ($user) {
             factory(Item::class, 10)->make()->each(function ($item) use ($user) {
                 $item->user()->associate($user);

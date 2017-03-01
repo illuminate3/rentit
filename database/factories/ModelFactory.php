@@ -29,5 +29,6 @@ $factory->define(App\Item::class, function (Faker\Generator $faker) {
         'title' => $faker->word(),
         'description' => $faker->text(),
         'image' => $faker->imageUrl(),
+        'price' => round($faker->numberBetween(200, 100000), -3),
     ];
 });

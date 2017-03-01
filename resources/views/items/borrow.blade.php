@@ -13,8 +13,8 @@
 	  {{ csrf_field() }}
 
 		<div class="form-group">
-			<label for="description">Zpráva pro příjemce</label>
-			<textarea type="password" class="form-control" id="description" name="description" placeholder="Popis"></textarea>
+			<label for="message">Zpráva pro příjemce</label>
+			<textarea type="password" class="form-control" id="message" name="message" placeholder="Popis"></textarea>
 		</div>
 
 		<button type="submit" class="btn btn-default">Odeslat</button>

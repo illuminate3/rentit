@@ -5,8 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-use App\Item;
-
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -27,7 +25,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Route::model('item', Item::class);
+        Route::model('item', \App\Item::class);
+        Route::model('user', \App\User::class);
     }
 
     /**
