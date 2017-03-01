@@ -13,24 +13,45 @@ class ItemsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'categoryIndex', 'show']]);
     }
 
     public function index()
     {
-        $items = Item::orderBy('updated_at', 'desc')->paginate(20);
-        return view('items.index', ['items' => $items]);
+        $items = Item::orderBy('updated_at', 'desc')->paginate(12);
+        $categories = Category::all();
+        
+        return view('items.index', [
+            'items' => $items,
+            'categories' =>  $categories,
+            'category' => null,
+        ]);
+    }
+
+    public function categoryIndex(Category $category)
+    {
+        $items = Item::where('category_id', $category->id)->paginate(12);
+        $categories = Category::all();
+
+        return view('items.index', [
+            'items' => $items,
+            'categories' =>  $categories,
+            'category' => $category,
+        ]);
     }
 
     public function show(Item $item)
     {
-        return view('items.show', ['item' => $item]);
+        return view('items.show', [
+            'item' => $item
+        ]);
     }
 
     public function create(Item $item)
     {
-        $categories = Category::all();
-        return view('items.create', [ 'categories' => $categories ]);
+        return view('items.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     public function store(Request $request)
@@ -45,6 +66,7 @@ class ItemsController extends Controller
         $item->title = $request->input('title');
         $item->description = $request->input('description');
         $item->category_id = $request->input('category_id');
+        $item->price = $request->input('price');
         $item->user()->associate(Auth::user());
 
         if ($request->hasFile('image')) {
@@ -59,7 +81,10 @@ class ItemsController extends Controller
 
     public function destroy(Item $item)
     {
-        $item->delete();
+        if ($item->user == Auth::user()) {
+            $item->delete();
+        }
+
         return redirect()->action('ItemsController@index');
     }
 

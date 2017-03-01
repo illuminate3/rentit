@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        foreach (['indefinite', 'lenses', 'drones', 'cameras', 'equipment'] as $name) {
+        foreach (['cameras', 'drones', 'lenses', 'red'] as $name) {
             Category::create([
                 'name' => $name,
                 'slug' => str_slug($name)

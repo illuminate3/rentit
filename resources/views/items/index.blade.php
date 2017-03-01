@@ -7,6 +7,32 @@
 <div class="item-list">
 	<div class="container">
 
+		<div class="category-picker">
+			<div class="category-picker__title">Kategorie</div>
+			<div class="category-picker__dropdown">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						{{ $category === null ? 'Vše' : $category->name }}
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ action('ItemsController@index') }}">
+								Vše
+							</a>
+						</li>
+						@foreach ($categories as $category)
+							<li>
+								<a href="{{ action('ItemsController@categoryIndex', $category) }}">
+									{{ $category->name }}
+								</a>
+							</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<div class="item-tile-container">
 			@foreach($items as $item)
 				<a class="card item-tile" href="{{ action('ItemsController@show', $item) }}">

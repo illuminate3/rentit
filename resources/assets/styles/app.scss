@@ -8,8 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "root";
+// Views
+@import "layout";
 
 // Views
-@import "views/home";
-@import "views/item";
+@import "views";
