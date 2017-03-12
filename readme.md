@@ -4,7 +4,7 @@ Shooting equipment sharing and renting service written in PHP using Laravel fram
 
 ## Installation
 
-1. `git clone https://github.com/janzaoral/rentit`
+1. `git clone https://github.com/janzaoral/rentit` and `cd rentit`
 
 2. `composer install`
 
