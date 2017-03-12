@@ -1,10 +1,11 @@
 # Rentit
 
-Služba pro sdílení, půjčování a pronajímání natáčecího vybavení.
-Napsáno v PHP s použitím frameworku Laravel.
+Shooting equipment sharing and renting service written in PHP using Laravel framework.
 
-# Instalace
+## Installation
 
-- composer install
+1. `git clone https://github.com/janzaoral/rentit` and `cd rentit`
 
-- php -S localhost:8000 -t public
+2. `composer install`
+
+3. `php -S localhost:8000 -t public` and visit http://localhost:8000 in your browser
