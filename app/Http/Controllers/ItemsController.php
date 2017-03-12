@@ -70,8 +70,8 @@ class ItemsController extends Controller
         $item->user()->associate(Auth::user());
 
         if ($request->hasFile('image')) {
-            $name = $request->file('image')->store('storage/images');
-            $item->image = $name;
+            $name = $request->file('image')->store('public', 'local');
+            $item->image = str_replace('public', 'storage', $name);
         }
 
         $item->save();
